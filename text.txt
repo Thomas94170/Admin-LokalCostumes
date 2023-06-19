@@ -1,0 +1,7 @@
+firebase
+
+project-1067693808400
+
+
+identifiant : AdminLokal
+password : Costume1234

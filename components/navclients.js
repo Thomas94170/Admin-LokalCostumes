@@ -4,7 +4,7 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Consulter la liste client", href: "#", current: false },
+  { name: "Consulter la liste client", href: "/viewclients", current: false },
 ];
 
 function classNames(...classes) {

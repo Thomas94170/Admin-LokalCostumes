@@ -4,9 +4,9 @@ import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 const navigation = [
-  { name: "Voir les costumes", href: "#", current: false },
+  { name: "Voir les costumes", href: "/viewcostumes", current: false },
   { name: "Ajouter", href: "#", current: false },
-  { name: "Supprimer", href: "#", current: false },
+  { name: "Supprimer", href: "/deletecostumes", current: false },
   { name: "Modifier", href: "#", current: false },
 ];
 

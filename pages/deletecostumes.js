@@ -20,16 +20,16 @@ export default function Deletecostumes() {
   }, []);
 
   const handleDeleteCostume = async (id) => {
+    console.log("id " + id);
     try {
       const response = await fetch(`http://localhost:5400/costume/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
-        // La suppression a réussi
-        // Mettez à jour l'état de vos costumes ou effectuez toute autre action nécessaire
-        console.log("Le costume a été supprimé avec succès " + response);
+        const data = await response.json();
+
+        console.log("Le costume a été supprimé avec succès " + data);
       } else {
-        // La suppression a échoué
         console.error("Erreur lors de la suppression du costume");
       }
     } catch (error) {

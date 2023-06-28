@@ -19,10 +19,10 @@ export default function Deletecostumes() {
     fetchData();
   }, []);
 
-  const handleDeleteCostume = async (id) => {
-    console.log("id " + id);
+  const handleDeleteCostume = async (titre) => {
+    console.log("id " + titre);
     try {
-      const response = await fetch(`http://localhost:5400/costume/${id}`, {
+      const response = await fetch(`http://localhost:5400/costume/${titre}`, {
         method: "DELETE",
       });
       if (response.ok) {
@@ -63,7 +63,7 @@ export default function Deletecostumes() {
             <p className="text-center">{item.description}</p>
             <br />
             <p className="text-center">{item.prix}€/jour</p>
-            <button onClick={() => handleDeleteCostume(item._id)}>
+            <button onClick={() => handleDeleteCostume(item.titre)}>
               <ArchiveBoxXMarkIcon className="h-5 w-5" aria-hidden="true" />
               Supprimer
             </button>

@@ -14,11 +14,15 @@ export default function Addgalerie() {
     try {
       const formData = new FormData();
       selectedFiles.forEach((file) => {
-        formData.append("images", file);
+        formData.append("imageGallerie", file);
         console.log(formData);
       });
 
-      await axios.post("http://localhost:5400/gallerie/setGalleries", formData);
+      await axios.post("http://localhost:5400/gallerie/", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
       // Afficher une alerte de confirmation
       alert("Photo ajoutée à la galerie avec succès");

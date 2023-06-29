@@ -3,7 +3,9 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-const navigation = [{ name: "Voir les commandes", href: "#", current: false }];
+const navigation = [
+  { name: "Voir les commandes", href: "/vieworders", current: false },
+];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

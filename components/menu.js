@@ -13,6 +13,7 @@ import {
   FingerPrintIcon,
   SquaresPlusIcon,
 } from "@heroicons/react/24/outline";
+import Logout from "./logout";
 
 const solutions = [
   {
@@ -88,6 +89,7 @@ export default function Menu() {
                   </div>
                 </div>
               ))}
+              <Logout />
             </div>
             <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
               {callsToAction.map((item) => (

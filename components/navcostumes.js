@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Voir les costumes", href: "/viewcostumes", current: false },
-  { name: "Ajouter", href: "#", current: false },
+  { name: "Ajouter", href: "/addcostume", current: false },
   { name: "Supprimer", href: "/deletecostumes", current: false },
   { name: "Modifier", href: "#", current: false },
 ];

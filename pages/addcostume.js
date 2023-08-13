@@ -3,6 +3,7 @@ import axios from "axios";
 
 export default function Addcostume() {
   const [selectedFiles, setSelectedFiles] = useState([]);
+  const [selectedImageDeux, setSelectedImageDeux] = useState([]);
   const [titre, setTitre] = useState("");
   const [description, setDescription] = useState("");
   const [prix, setPrix] = useState("");
@@ -13,17 +14,34 @@ export default function Addcostume() {
     console.log(files);
   };
 
+  const handleImageDeuxChange = (event) => {
+    const files = Array.from(event.target.files);
+    setSelectedImageDeux(files);
+    console.log(files);
+  };
+
   const handleUpload = async () => {
     try {
       const formData = new FormData();
+
       selectedFiles.forEach((file) => {
-        formData.append("imageGallerie", file);
+        formData.append("imageUne", file);
         console.log(formData);
       });
 
-      formData.append("titre", titre);
-      formData.append("description", description);
-      formData.append("prix", prix);
+      selectedImageDeux.forEach((file) => {
+        formData.append("imageDeux", file);
+        console.log(formData);
+      });
+
+      formData.append("titre", String(titre));
+      formData.append("description", String(description));
+      formData.append("prix", String(prix));
+
+      console.log("Données envoyées au serveur :");
+      for (let pair of formData.entries()) {
+        console.log(pair[0], pair[1]);
+      }
 
       await axios.post("http://localhost:5400/costume/", formData, {
         headers: {
@@ -35,6 +53,7 @@ export default function Addcostume() {
       alert("Costume ajouté avec succès");
 
       setSelectedFiles([]); // Clear the selected files
+      setSelectedImageDeux([]);
     } catch (error) {
       console.error(error);
       alert("Erreur dans la sauvegarde du costume " + error);
@@ -50,6 +69,13 @@ export default function Addcostume() {
           accept="image/*"
           multiple
           onChange={handleFileChange}
+        />
+        <input
+          className="mb-3"
+          type="file"
+          accept="image/*"
+          multiple
+          onChange={handleImageDeuxChange} // Vous devrez définir handleImageDeuxChange de manière similaire à handleFileChange pour gérer la deuxième image
         />
         <input
           className="w-full mb-3"

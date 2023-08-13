@@ -18,7 +18,7 @@ export default function Addgalerie() {
         console.log(formData);
       });
 
-      await axios.post("http://localhost:5400/gallerie/", formData, {
+      await axios.post("http://localhost:5400/uploads/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

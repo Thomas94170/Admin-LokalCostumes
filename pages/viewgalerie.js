@@ -8,7 +8,7 @@ export default function Viewgalerie() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:5400/gallerie");
+        const response = await axios.get("http://localhost:5400/uploads");
         setData(response.data);
         console.log(response);
         // setData(jsonData);
@@ -18,6 +18,8 @@ export default function Viewgalerie() {
     }
     fetchData();
   }, []);
+
+  const test = "http://localhost:5400/uploads/1691830564675.jpeg";
 
   return (
     <>
@@ -29,7 +31,7 @@ export default function Viewgalerie() {
               <div className="flex justify-center ">
                 <img
                   className="img-galerie m-2 rounded-md hover:scale-150 transition duration-300 ease-out m-10"
-                  src={`http://localhost:5400/gallerie/${item.imageGallerie}`}
+                  src={item.imageGallerie}
                   alt={item._id}
                   width={150}
                 ></img>
@@ -38,7 +40,7 @@ export default function Viewgalerie() {
           </div>
         ))}
       </div>
-
+      <img src={test}></img>
       <Link href="/galerie">Retour</Link>
     </>
   );

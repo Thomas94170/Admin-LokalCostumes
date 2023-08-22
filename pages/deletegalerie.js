@@ -27,6 +27,7 @@ export default function Deletegalerie() {
       if (response.ok) {
         // La suppression a réussi
         // Mettez à jour l'état de vos costumes ou effectuez toute autre action nécessaire
+        alert("L'image a été supprimé avec succès");
         console.log("L'image a été supprimé avec succès");
       } else {
         // La suppression a échoué

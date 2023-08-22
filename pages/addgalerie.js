@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 export default function Addgalerie() {
   const [selectedFiles, setSelectedFiles] = useState([]);
@@ -18,7 +19,7 @@ export default function Addgalerie() {
         console.log(formData);
       });
 
-      await axios.post("http://localhost:5400/uploads/", formData, {
+      await axios.post("http://localhost:5400/gallerie/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -35,19 +36,22 @@ export default function Addgalerie() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-md">
-        <input
-          className=""
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleFileChange}
-        />
-        <button className="m-5" onClick={handleUpload}>
-          Ajouter une photo
-        </button>
+    <>
+      <div className="flex justify-center items-center h-screen bg-gray-100">
+        <div className="p-8 bg-white rounded-lg shadow-md">
+          <input
+            className=""
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleFileChange}
+          />
+          <button className="m-5" onClick={handleUpload}>
+            Ajouter une photo
+          </button>
+        </div>
       </div>
-    </div>
+      <Link href="/galerie">Retour</Link>
+    </>
   );
 }

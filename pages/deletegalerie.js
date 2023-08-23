@@ -19,11 +19,14 @@ export default function Deletegalerie() {
     fetchData();
   }, []);
 
-  const handleDeleteGalerie = async (id) => {
+  const handleDeleteGalerie = async (imagGallerie) => {
     try {
-      const response = await fetch(`http://localhost:5400/gallerie/${id}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `http://localhost:5400/gallerie/${imagGallerie}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
         // La suppression a réussi
         // Mettez à jour l'état de vos costumes ou effectuez toute autre action nécessaire
@@ -53,7 +56,7 @@ export default function Deletegalerie() {
                 width={150}
               />
             </div>
-            <button onClick={() => handleDeleteGalerie(item._id)}>
+            <button onClick={() => handleDeleteGalerie(item.imageGallerie)}>
               <ArchiveBoxXMarkIcon className="h-5 w-5" aria-hidden="true" />
               Supprimer
             </button>

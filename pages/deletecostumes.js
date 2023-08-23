@@ -20,7 +20,7 @@ export default function Deletecostumes() {
   }, []);
 
   const handleDeleteCostume = async (titre) => {
-    console.log("id " + titre);
+    console.log("costume supprimé : " + titre);
     try {
       const response = await fetch(`http://localhost:5400/costume/${titre}`, {
         method: "DELETE",

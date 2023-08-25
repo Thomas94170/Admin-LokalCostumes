@@ -5,3 +5,11 @@ project-1067693808400
 
 identifiant : AdminLokal
 password : Costume1234
+
+
+probleme à régler sur l'appli : 
+-coté client : résoudre le probleme de token qui est undefined
+
+-coté back office : résoudre le probleme d'affichage des images uploadées par multer
+
+-coté back end : tt est ok 

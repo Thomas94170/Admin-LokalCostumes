@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArchiveBoxXMarkIcon } from "@heroicons/react/20/solid";
 
 export default function Deletegalerie() {
@@ -19,10 +20,10 @@ export default function Deletegalerie() {
     fetchData();
   }, []);
 
-  const handleDeleteGalerie = async (imagGallerie) => {
+  const handleDeleteGalerie = async (imageGallerie) => {
     try {
       const response = await fetch(
-        `http://localhost:5400/gallerie/${imagGallerie}`,
+        `http://localhost:5400/gallerie/${imageGallerie}`,
         {
           method: "DELETE",
         }
@@ -43,19 +44,20 @@ export default function Deletegalerie() {
 
   return (
     <>
-      <h1 className="text-center text-xl">Supprimer un costume</h1>
+      <h1 className="text-center text-xl">Supprimer une image de la galerie</h1>
       <br />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {data.map((item) => (
           <div key={item._id} className="bg-white p-4 shadow-md rounded-md">
             <div className="flex justify-center">
-              <img
-                className="m-2"
-                src={item.imageGallerie}
-                alt={item._id}
+              <Image
+                src={`/uploads/${item.imageGallerie}`}
+                alt={item.imageGallerie}
                 width={150}
+                height={150}
               />
             </div>
+            <p className="flex justify-center">{item.imageGallerie}A</p>
             <button onClick={() => handleDeleteGalerie(item.imageGallerie)}>
               <ArchiveBoxXMarkIcon className="h-5 w-5" aria-hidden="true" />
               Supprimer

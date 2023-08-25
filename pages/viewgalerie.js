@@ -30,7 +30,7 @@ export default function Viewgalerie() {
               <div className="flex justify-center ">
                 <Image
                   className="img-galerie m-2 rounded-md hover:scale-150 transition duration-300 ease-out m-10"
-                  src={`/uploads/${gallery.imageGallerie}`}
+                  src={`/public/uploads/${gallery.imageGallerie}`}
                   alt={gallery._id}
                   width={150}
                   height={150} // Set the height of the image

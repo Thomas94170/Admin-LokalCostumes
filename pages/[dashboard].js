@@ -2,8 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Link from "next/link";
 import Menu from "../components/menu";
+import Image from "next/image";
+import mask from "../public/mask.jpg";
 
 export default function Dashboard() {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -46,6 +47,17 @@ export default function Dashboard() {
   return (
     <>
       <Menu />
+      <Image
+        alt="background"
+        src={mask}
+        style={{
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "100vh",
+          width: "100%",
+        }}
+      />
     </>
   );
 }
